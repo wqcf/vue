@@ -14,7 +14,7 @@
 				<span class="mui-tab-label">消息</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-contact">
-				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-icon mui-icon-contact"></span>  
 				<span class="mui-tab-label">通讯录</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-map">
