@@ -44,11 +44,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style <style lang="scss" scoped>
 .app-container{
 		padding-top: 40px;
 		overflow-x: hidden;
+		.mui-bar{
+			-webkit-box-shadow:unset;
+			box-shadow:0 0 1px rgba(0, 0, 0, .4);
+		}
 }
 
 .v-enter{
@@ -59,7 +62,6 @@ export default {
 	opacity:0;
 	transform: translatex(-100%);
 	position: absolute;
-
 }
 .v-enter-active,
 .v-leave-active {
