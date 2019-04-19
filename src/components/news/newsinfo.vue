@@ -1,6 +1,5 @@
 <template>
   <div>
-    我是列表详情
     <comment-box :id="this.id"></comment-box>
   </div>
 </template>
