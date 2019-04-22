@@ -3,7 +3,7 @@
       <div id="slider" class="mui-slider">
             <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                 <div class="mui-scroll">
-                    <a :class="['mui-control-item', s.id == 0 ? 'mui-active':'']" v-for="s in scoroll" :key="s.id" @click="getPhotoList(s.id)">
+                    <a :class="['mui-control-item', s.id == 0 ? 'mui-active':'']" v-for="s in scoroll" :key="s.id" @tap="getPhotoList(s.id)">
                         {{s.name}}
                     </a>
                 </div>

@@ -1,11 +1,15 @@
 <template>
   <div class="app-container" >
     <!-- 顶部Header区域 -->
-    <mt-header fixed title="小七程序员-VUE"></mt-header>
+    <mt-header fixed title="小七程序员-VUE">
+		 <div @click="getBack" slot="left">
+			<mt-button icon="back">返回</mt-button>
+		</div>
+	</mt-header>
     <!-- 中间路由router-view -->
-		<transition>
-			<router-view></router-view>
-		</transition>
+	<transition>
+		<router-view></router-view>
+	</transition>
     <!-- 顶部Header区域 -->
     <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item-wq" to="/home">
@@ -32,11 +36,12 @@
 export default {
   data() {
     return {
-
     }
   },
   methods: {
-
+	  getBack(){
+		  this.$router.go(-1);
+	  }
   },
   components: {
 
@@ -89,17 +94,18 @@ export default {
 
 .v-enter{
 	opacity:0;
-	transform: translatex(100%);
 }
+// 	transform: translatex(100%);
+// }
 .v-leave-to{
 	opacity:0;
-	transform: translatex(-100%);
+	// transform: translatex(-100%);
 	position: absolute;
 }
-.v-enter-active,
-.v-leave-active {
-	transition: all 0.5s ease;
-}
+// .v-enter-active,
+// .v-leave-active {
+// 	transition: all 0.5s ease;
+// }
 
 
 </style>

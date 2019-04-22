@@ -17,12 +17,28 @@ import './lib/css/mui.css';
 import MintUI from 'mint-ui';
 Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
-import VueResorece from 'vue-resource';
-Vue.use(VueResorece)
+import preview from 'vue-resource';
+// Vue.use(VueResorece)
+Vue.use(preview, {
+    mainClass: 'pswp--minimal--dark',
+    barsSize: {top: 0, bottom: 0},
+    captionEl: false,
+    fullscreenEl: false,
+    shareEl: false,
+    bgOpacity: 0.85,
+    tapToClose: true,
+    tapToToggleControls: false
+  })
 //设置路由请求的根路径
 Vue.http.options.root = 'http://vue.studyit.io';
 //全局设置post 
 Vue.http.options.emulateJSON = true;
+//安装图片预览插件
+import VuePreview from 'vue-preview'
+// defalut install
+Vue.use(VuePreview)
+// with parameters install
+
 
 var vm = new Vue({
     el: '#app',

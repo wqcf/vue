@@ -7,7 +7,9 @@
       </p>
       <hr>
       <!-- 图片内容区域 -->
-      <div class="content"></div>
+      <div class="content">
+          <vue-preview class="preview" :slides="slide1" @close="handleClose"></vue-preview>
+      </div>
       <comment-box :id="this.id"></comment-box>
   </div>
 </template>
@@ -46,7 +48,52 @@ export default {
                     time:this.getNowFormatDate(),
                 },
             ],
-            data:{}
+            data:{},
+            slide1 : [
+            {
+                 src: '/src/images/0.jpg',
+                 msrc:'/src/images/0.jpg',
+                alt: 'picture1',
+                title: 'Image Caption 1',
+                w: 600,
+                h: 400
+          },{
+                src: '/src/images/1.jpg',
+                msrc:'/src/images/1.jpg',
+                alt: 'picture1',
+                title: 'Image Caption 1',
+                w: 600,
+                h: 400
+          },{
+                src: '/src/images/2.jpg',
+                msrc:'/src/images/2.jpg',
+                alt: 'picture1',
+                title: 'Image Caption 1',
+                w: 600,
+                h: 400
+          },{
+                src: '/src/images/cbd.jpg',
+                msrc:'/src/images/cbd.jpg',
+                alt: 'picture1',
+                title: 'Image Caption 1',
+                w: 600,
+                h: 400
+           },{
+                 src: '/src/images/muwu.jpg',
+                msrc:'/src/images/muwu.jpg',
+                alt: 'picture1',
+                title: 'Image Caption 1',
+                w: 600,
+                h: 400
+          },{
+                src: '/src/images/shuijiao.jpg',
+                msrc:'/src/images/shuijiao.jpg',
+                alt: 'picture1',
+                title: 'Image Caption 1',
+                w: 600,
+                h: 400
+          }
+        ],
       }
   },
   created(){
@@ -67,7 +114,10 @@ export default {
     getPhotoInfo(id){
         this.data=this.datas[id];
         console.log(this.data);
-    }
+    },
+    handleClose () {
+        console.log('close event')
+      }
 
   },
   components: {
@@ -78,6 +128,14 @@ export default {
 
 <style lang='scss' scoped>
 .photoinfo{
+    .content{
+        .preview{
+            img{
+                width: 60px;
+                height: 40px;
+            }
+        }
+    }
     h3{
         font-size: 14px;
         color: #007aff;

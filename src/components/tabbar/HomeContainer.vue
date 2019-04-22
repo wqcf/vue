@@ -1,10 +1,6 @@
 <template>
-    <div>
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="(index, item) in lunbotuList" :key="item">
-                <img :src="index" alt="">
-            </mt-swipe-item>
-        </mt-swipe>     
+    <div> 
+        <swiper-box :lunbotuList="lunbotuList" :isfull="false"></swiper-box> 
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newslist">
@@ -15,7 +11,8 @@
                 <router-link to="/home/photolist">
                     <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
                     <div class="mui-media-body">图片分享</div></router-link></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/goodslist">
                     <span class="mui-icon mui-icon-chatbubble"></span>
                     <div class="mui-media-body">商品购买</div></router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="#">
@@ -34,6 +31,7 @@
 
 <script>
 import { Toast } from "mint-ui";
+import swiper from "../subcomponents/swiper.vue";
     export default {
         data(){
             return {
@@ -48,7 +46,6 @@ import { Toast } from "mint-ui";
             this.getlunbotu();
         },
         methods:{
-
             getlunbotu(){
                 // this.$http.get("https://www.easy-mock.com/mock/5c32dbb0fd25436daf3c23b9/train/api/xwlineintensity").then((result)=>{
                 //     if(result.body.success){
@@ -58,28 +55,14 @@ import { Toast } from "mint-ui";
                 //     }
                 // })
             }
+        },
+        components: {
+            'swiper-box':swiper
         }
     }
 </script>
 <style lang="scss" scoped>
-.mint-swipe{
-    height:200px;
-}
-.mint-swipe-item{
-    &:nth-child(1){
-        background:red;
-    }
-    &:nth-child(2){
-        background:blue;
-    }
-    &:nth-child(3){
-        background:green;
-    }
-    img{
-        width: 100%;
-        height:200px;
-    }
-}
+
 .mui-grid-view.mui-grid-9{
     background-color: #fff;
     
