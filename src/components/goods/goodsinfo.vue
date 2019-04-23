@@ -4,7 +4,7 @@
     @before-enter = "beforeEnter"
     @enter="enter"
     @after-enter="afterEnter">
-        <div class="ball" v-show="ballFlag"></div>
+        <div class="ball" v-show="ballFlag" ref="ball"></div>
     </transition>
     <div class="mui-card">
        <swiper-box :lunbotuList="lunbotuList" :isfull="false"></swiper-box>
@@ -19,10 +19,11 @@
                         ￥2199
                     </span>
                 </p>
-                <p style="margin:10px 0 ;">购买数量：<numbox-box></numbox-box></p>
+                <p style="margin:10px 0 ;">购买数量：<numbox-box @getcount="getSelectedCount" :max="60"></numbox-box></p>
                 <p>
                     <mt-button type="primary" size="small">立即购买</mt-button>
                     <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
+                    
                 </p>
             </div>
         </div>
@@ -57,7 +58,8 @@ export default {
             "/src/images/2.jpg",
         ],
         id:this.$route.params.id,
-        ballFlag: false //控制小球的隐藏显示
+        ballFlag: false ,//控制小球的隐藏显示
+        selectedCount: 1,
     }
   },
   methods: {
@@ -77,12 +79,22 @@ export default {
       },
       enter(el,done){
           el.offsetWidth;
-          el.style.transform = "translate(58px, 216px)";
-          el.style.transition = 'all 1s cubic-bezier(.46,-0.36,.92,.73)';
+          //获取小球在页面中的位置
+          const ballPosition = this.$refs.ball.getBoundingClientRect(); 
+          const badgePosition = document.getElementById('badge').getBoundingClientRect(); 
+
+          const xDist = badgePosition.left - ballPosition.left;
+          const yDist = badgePosition.top - ballPosition.top;
+
+          el.style.transform = `translate(` + xDist + `px, ` + yDist + `px)`;
+          el.style.transition = 'all 0.5s cubic-bezier(.46,-0.36,.92,.73)';
           done()
       },
       afterEnter(el){
           this.ballFlag = !this.ballFlag;
+      },
+      getSelectedCount(count){
+          this.selectedCount = count;
       }
 
   },
