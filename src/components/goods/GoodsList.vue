@@ -2,7 +2,7 @@
   <div class="goods-list">
       <router-link class="goods-item" v-for="l in list" :key="l.id" :to="'/home/goodsinfo/'+l.id">
           <img :src="l.src" alt="" >
-          <h1 class="title">AAAA级景区</h1>
+          <h1 class="title">{{l.title}}</h1>
           <div class="info">
               <p class="price">
                   <span class="now">￥899</span>
@@ -25,12 +25,15 @@ export default {
         list : [
             {
                 src:'/src/images/0.jpg',
+                title:'AAAA级景区',
                 id: 0
             },{
                 src:'/src/images/1.jpg',
+                title:'AAAA级景区AAAAA级景区AAAAAAAA级景区AAAAA级景区AAAAAAAA级景区AAAAA级景区AAAAAAAA级景区',
                 id: 1
             },{
                 src:'/src/images/2.jpg',
+                title:'AAAA级景区',
                 id: 2
             },
         ]
@@ -66,6 +69,7 @@ export default {
         }
         .title{
             font-size: 14px;
+            overflow: hidden;
         }
         .info{
             background: #eee;

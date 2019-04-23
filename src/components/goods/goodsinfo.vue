@@ -92,6 +92,9 @@ export default {
       },
       afterEnter(el){
           this.ballFlag = !this.ballFlag;
+          var goodsinfo = { id : this.id , count: this.selectedCount, price: 2199, selected: true}
+
+          this.$store.commit('addToCar',goodsinfo)
       },
       getSelectedCount(count){
           this.selectedCount = count;
